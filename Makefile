@@ -15,7 +15,7 @@ build: vendor
 		-o dregsy ./cmd/dregsy/
 
 docker: vendor skopeo
-	docker build -t xelalex/$(REPO) -f Dockerfile \
+	docker build -t chicagozer/$(REPO) -f Dockerfile \
 		--build-arg dregsy_version=$(DREGSY_VERSION) .
 	docker image prune --force --filter label=stage=intermediate
 
@@ -28,7 +28,7 @@ vendor:
 skopeo:
 	git submodule update --init
 	# issue 7: patch Skopeo's build Dockerfile to use more recent Ubuntu
-	sed -i 's/FROM ubuntu:17.10/FROM ubuntu:18.10/' $(SKOPEO_DIR)/Dockerfile.build
+	# sed -i 's/FROM ubuntu:17.10/FROM ubuntu:18.10/' $(SKOPEO_DIR)/Dockerfile.build
 	$(MAKE) -C $(SKOPEO_DIR) binary-static DISABLE_CGO=1
 	# issue 7: restore original Dockerfile
-	cd $(SKOPEO_DIR); git checkout Dockerfile.build
+	# cd $(SKOPEO_DIR); git checkout Dockerfile.build

@@ -4,8 +4,8 @@ LABEL stage=intermediate
 
 ARG dregsy_version
 
-COPY . $GOPATH/src/github.com/xelalexv/dregsy/
-WORKDIR $GOPATH/src/github.com/xelalexv/dregsy/
+COPY . $GOPATH/src/github.com/chicagozer/dregsy/
+WORKDIR $GOPATH/src/github.com/chicagozer/dregsy/
 
 RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -v -a \
 	-tags netgo -installsuffix netgo \
