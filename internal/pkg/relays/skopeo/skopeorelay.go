@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/xelalexv/dregsy/internal/pkg/log"
-	"github.com/xelalexv/dregsy/internal/pkg/relays/docker"
+	"github.com/xelalexv/chicagozer/internal/pkg/log"
+	"github.com/xelalexv/chicagozer/internal/pkg/relays/docker"
 )
 
 const RelayID = "skopeo"

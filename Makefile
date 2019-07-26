@@ -6,10 +6,10 @@ DREGSY_VERSION=$$(git describe --always --tag --dirty)
 
 build: vendor
 	docker run --rm --user $(shell id -u):$(shell id -g) \
-		-v $$(pwd):/go/src/github.com/xelalexv/$(REPO) \
-		-w /go/src/github.com/xelalexv/$(REPO) \
+		-v $$(pwd):/go/src/github.com/chicagozer/$(REPO) \
+		-w /go/src/github.com/chicagozer/$(REPO) \
 		-e CGO_ENABLED=0 -e GOOS=linux -e GOARCH=amd64 \
-		-e GOCACHE=/go/src/github.com/xelalexv/$(REPO)/.cache \
+		-e GOCACHE=/go/src/github.com/chicagozer/$(REPO)/.cache \
 		golang:1.10 go build -v -a -tags netgo -installsuffix netgo \
 		-ldflags "-w -X main.DregsyVersion=$(DREGSY_VERSION)" \
 		-o dregsy ./cmd/dregsy/
@@ -21,8 +21,8 @@ docker: vendor skopeo
 
 vendor:
 	docker run --rm \
-		-v $$(pwd):/go/src/github.com/xelalexv/$(REPO) \
-		-w /go/src/github.com/xelalexv/$(REPO) \
+		-v $$(pwd):/go/src/github.com/chicagozer/$(REPO) \
+		-w /go/src/github.com/chicagozer/$(REPO) \
 		golang:1.10 bash -c "go get github.com/kardianos/govendor && govendor sync"
 
 skopeo:

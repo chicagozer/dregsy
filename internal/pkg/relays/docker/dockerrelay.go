@@ -7,7 +7,7 @@ import (
 
 	"github.com/docker/docker/client"
 
-	"github.com/xelalexv/dregsy/internal/pkg/log"
+	"github.com/chicagozer/dregsy/internal/pkg/log"
 )
 
 const RelayID = "docker"
